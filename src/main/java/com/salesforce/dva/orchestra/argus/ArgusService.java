@@ -33,6 +33,9 @@ package com.salesforce.dva.orchestra.argus;
 import com.salesforce.dva.orchestra.argus.entity.Annotation;
 import com.salesforce.dva.orchestra.argus.entity.Metric;
 import org.apache.http.HttpResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -46,6 +49,8 @@ import static com.salesforce.dva.orchestra.util.Assert.requireArgument;
  * @author  Bhagyashree Shekhawat (bbhati@salesforce.com)
  */
 public class ArgusService {
+
+    Logger _logger = LoggerFactory.getLogger(ArgusService.class);
 
     //~ Instance fields ******************************************************************************************************************************
 
@@ -104,7 +109,7 @@ public class ArgusService {
      */
     public void put(Metric metric) {
         requireArgument(metric != null, "Data point cannot be null.");
-        System.out.println("PUT -> "  + metric);
+        _logger.info("PUT -> "  + metric);
         put(Arrays.asList(new Metric[] { metric }));
     }
 
@@ -115,6 +120,7 @@ public class ArgusService {
      */
     public void put(List<Metric> data) {
         requireArgument(data != null && !data.isEmpty(), "Data cannot be null or empty.");
+        _logger.info("PUT -> "  + data);
         client.putMetricData(data);
     }
 
