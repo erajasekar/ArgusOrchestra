@@ -104,6 +104,7 @@ public class ArgusService {
      */
     public void put(Metric metric) {
         requireArgument(metric != null, "Data point cannot be null.");
+        System.out.println("PUT -> "  + metric);
         put(Arrays.asList(new Metric[] { metric }));
     }
 
@@ -124,6 +125,7 @@ public class ArgusService {
      */
     public void putAnnotation(Annotation annotation) {
         requireArgument(annotation != null, "Annotation cannot be null.");
+        System.out.println("PUT -> "  + annotation);
         putAnnotations(Arrays.asList(new Annotation[] { annotation }));
     }
 

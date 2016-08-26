@@ -237,7 +237,7 @@ public class Collector {
                 if (!metricChunk.isEmpty()) {
                     try {
                         service.put(metricChunk);
-                        LOGGER.debug("metric chunk sent to service");
+                        LOGGER.info("metric chunk sent to service " + metricChunk);
                     } finally {
                         metricChunk.clear();
                     }
@@ -245,7 +245,7 @@ public class Collector {
                 if (!annotationChunk.isEmpty()) {
                     try {
                         service.putAnnotations(annotationChunk);
-                        LOGGER.debug("annotation chunk sent to service");
+                        LOGGER.info("annotation chunk sent to service " + annotationChunk);
                     } finally {
                         annotationChunk.clear();
                     }

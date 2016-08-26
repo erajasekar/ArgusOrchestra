@@ -13,4 +13,8 @@
         <appender-ref ref="ORCHESTRA-CONSOLE"/>
     </logger>
 
+    <root level="DEBUG">
+        <appender-ref ref="ORCHESTRA-CONSOLE" />
+    </root>
+
 </configuration>

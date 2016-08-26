@@ -131,7 +131,7 @@ public class SplunkService {
             }
             timeout -= POLL_TIME_MS;
         }
-        LOGGER.debug(MessageFormat.format("Query for {0} has completed.", label));
+        LOGGER.info(MessageFormat.format("Query for {0} has completed.", label));
         return terminated ? getNullResults() : new ResultsReaderXml(job.getResults(resultArgs));
     }
 

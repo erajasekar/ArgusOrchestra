@@ -110,7 +110,10 @@ public class SplunkWorker<T> implements Callable<Boolean> {
         try {
             resultSet = service.querySplunkForEvents(query, Arrays.toString(queryParams.toArray(new String[queryParams.size()])));
             results.addAll(parser.parse(resultSet, queryParams));
-        } finally {
+            LOGGER.info("GOT ==> " + results);
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
             if (resultSet != null) {
                 try {
                     resultSet.close();
